@@ -17,7 +17,7 @@ return (
             <Nav.Link href="#pricing">Contacto</Nav.Link>
           </Nav>
      <CartWifget/>
-     <Badge bg="secondary">9</Badge>
+     <Badge bg="secondary">15</Badge>
         </Container>
       </Navbar>     
       );
