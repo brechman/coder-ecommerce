@@ -11,12 +11,17 @@ return (
     <Navbar bg="primary" data-bs-theme="dark">
         <Container>
           <Navbar.Brand href="#home">LIQUOR SHOP</Navbar.Brand>
+
           <Nav className="me-auto">
+
             <Nav.Link href="#home">Inicio</Nav.Link>
             <Nav.Link href="#features">Productos</Nav.Link>
             <Nav.Link href="#pricing">Contacto</Nav.Link>
+
           </Nav>
-     <CartWifget/>
+          
+         <CartWifget/>
+
      <Badge bg="secondary">15</Badge>
         </Container>
       </Navbar>     
