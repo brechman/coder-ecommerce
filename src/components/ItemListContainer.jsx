@@ -23,14 +23,8 @@ export const ItemListContainer = () => {
         });
     },[id]);
     return (
-        <Container className='mt-4'>
-            <Row>
-                {products.map((product) => (
-                    <Col xs={12} sm={6} md={4} lg={3} key={product.id}>
-                        <ItemList product={product} />
-                    </Col>
-                ))}
-            </Row>
+        <Container className='container'  >
+            {products !== null && <ItemList products={products}/>}
         </Container>
-    );
+    )
 }

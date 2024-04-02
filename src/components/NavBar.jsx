@@ -13,9 +13,9 @@ export const NavBar = () => {
         <Navbar.Brand as={NavLink} to="/">LIQUOR SHOP</Navbar.Brand>
 
         <Nav className="me-auto">
-          <Nav.Link as={NavLink} to="/inicio">Inicio</Nav.Link>
-          <Nav.Link as={NavLink} to="/productos">Productos</Nav.Link>
-          <Nav.Link as={NavLink} to="/contacto">Contacto</Nav.Link>
+          <Nav.Link as={NavLink} to="/home">Inicio</Nav.Link>
+          <Nav.Link as={NavLink} to="/products">Productos</Nav.Link>
+          <Nav.Link as={NavLink} to="/contact">Contacto</Nav.Link>
         </Nav>
         
         <CartWifget />
