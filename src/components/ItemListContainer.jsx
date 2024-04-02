@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'; 
+import { useParams,NavLink  } from 'react-router-dom'; 
 import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav'; // Importa Nav de react-bootstr
 import data from "../data/products.json";
 import { ItemList } from './ItemList';
+
 
 export const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
@@ -15,16 +17,25 @@ export const ItemListContainer = () => {
 
         get.then ((data) => {
             if(id){
-                const filteredData = data.filter (d => d.id === Number(id));
+                const filteredData = data.filter (d => d.category === id);
                 setProducts(filteredData);
             } else {
                 setProducts(data);
             }             
         });
     },[id]);
+
     return (
         <Container className='container'  >
-            {products !== null && <ItemList products={products}/>}
+              <Nav className="justify-content-center">
+                <Nav.Item>
+                    <Nav.Link as={NavLink} to="/category/regular">Regular</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link as={NavLink} to="/category/premium">Premium</Nav.Link>
+                </Nav.Item>
+            </Nav>
+               {products !== null && <ItemList products={products}/>}
         </Container>
     )
 }

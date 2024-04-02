@@ -11,24 +11,18 @@ export const ItemDetailContainer = () => {
     useEffect(() => {
         const getProduct = async () => {
             try {
-                // Simulamos una petición a una API con un retraso de 2 segundos
-                const response = await new Promise((resolve, reject) => {
+               const response = await new Promise((resolve, reject) => {
                     setTimeout(() => resolve(data), 2000);
                 });
-
-                // Buscamos el producto por su id en los datos
                 const filteredData = response.find((d) => d.id === Number(id));
-                
-                // Si encontramos el producto, lo establecemos en el estado
+           
                 if (filteredData) {
                     setProduct(filteredData);
                 } else {
-                    // Si no se encuentra el producto, puedes manejarlo aquí
-                    console.log(`No se encontró el producto con id ${id}`);
+                         console.log(`No se encontró el producto con id ${id}`);
                 }
             } catch (error) {
-                // Manejo de errores
-                console.error('Error al obtener el producto:', error);
+                       console.error('Error al obtener el producto:', error);
             }
         };
 

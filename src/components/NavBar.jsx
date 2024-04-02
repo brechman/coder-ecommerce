@@ -14,7 +14,7 @@ export const NavBar = () => {
 
         <Nav className="me-auto">
           <Nav.Link as={NavLink} to="/home">Inicio</Nav.Link>
-          <Nav.Link as={NavLink} to="/products">Productos</Nav.Link>
+          <Nav.Link as={NavLink} to="/">Productos</Nav.Link>
           <Nav.Link as={NavLink} to="/contact">Contacto</Nav.Link>
         </Nav>
         
