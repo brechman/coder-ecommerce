@@ -1,10 +1,36 @@
-export const ItemListContainer = (props) => {
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'; 
+import Container from 'react-bootstrap/Container';
+import data from "../data/products.json";
+import { ItemList } from './ItemList';
 
-    return(
-        <h1>
-            
-            {props.greeting}
-        </h1>
-    )
+export const ItemListContainer = () => {
+    const [products, setProducts] = useState([]);
+    const {id} = useParams();
 
+    useEffect(() => {
+        const get = new Promise((resolve, reject) => {
+            setTimeout(() => resolve(data), 2000);
+        });
+
+        get.then ((data) => {
+            if(id){
+                const filteredData = data.filter (d => d.id === Number(id));
+                setProducts(filteredData);
+            } else {
+                setProducts(data);
+            }             
+        });
+    },[id]);
+    return (
+        <Container className='mt-4'>
+            <Row>
+                {products.map((product) => (
+                    <Col xs={12} sm={6} md={4} lg={3} key={product.id}>
+                        <ItemList product={product} />
+                    </Col>
+                ))}
+            </Row>
+        </Container>
+    );
 }
