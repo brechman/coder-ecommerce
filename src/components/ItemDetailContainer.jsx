@@ -37,6 +37,8 @@ export const ItemDetailContainer = () => {
 
     if (!product) return null;
 
+    const formattedPrice = product.price.toLocaleString('es-AR', { minimumFractionDigits: 2 });
+
     return (
         <Container className='mt-4 text-center itemContainer'>
             <Card className='itemCard'>
@@ -44,8 +46,9 @@ export const ItemDetailContainer = () => {
                 <Card.Body>
                     <Card.Title>{product.name}</Card.Title>
                     <Card.Text>
-                        Categoría: {product.category}
+                        Categoría: {product.description}
                     </Card.Text>
+                    <Card.Text>Precio: S/. {formattedPrice}</Card.Text> 
                 </Card.Body>
             </Card>
         </Container>
