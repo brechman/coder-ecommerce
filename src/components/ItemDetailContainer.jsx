@@ -3,12 +3,22 @@ import { useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import data from "../data/products.json";
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
 
 export const ItemDetailContainer = () => {
     const [product, setProduct] = useState(null);
     const { id } = useParams();
 
     useEffect(() => {
+        const db = getFirestore();
+        const refDoc = doc(db, 'Productos', 'eknxHsouMl8yP0Gvik1f');
+        getDoc(refDoc).then(snapshot => {
+          setItem({ id: snapshot.id, ...snapshot.data() });
+        });
+      }, [id]);
+
+
+   /* useEffect(() => {
         const getProduct = async () => {
             try {
                const response = await new Promise((resolve, reject) => {
@@ -25,9 +35,9 @@ export const ItemDetailContainer = () => {
                        console.error('Error al obtener el producto:', error);
             }
         };
-
         getProduct();
     }, [id]);
+    */
 
     if (!product) return null;
 

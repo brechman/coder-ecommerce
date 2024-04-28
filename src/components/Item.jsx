@@ -1,22 +1,22 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card'; 
 import { Link } from 'react-router-dom';
+import ItemProductoDialog from './ItemProductoDialog'; 
 
-export const Item = ({product}) => {
+export const Item = ({ product }) => {
+    const formattedPrice = product.price.toLocaleString('es-ES', { minimumFractionDigits: 2 });
 
-    const formattedPrice = product.price.toLocaleString('es-AR', { minimumFractionDigits: 2 });
-
-    return(
-    <Card className='card'>
-      <Card.Img variant="top" src={product.imagen} />
-      <Card.Body>
-        <Card.Title>{product.name}</Card.Title>
-        <Card.Text>
-          {product.description}
-        </Card.Text>
-        <Card.Text>Precio: S/. {formattedPrice}</Card.Text> 
-                 <Link to={`/item/${product.id}`}><Button className= "button" variant="primary">Ver Producto</Button></Link>
-      </Card.Body>
-    </Card>
-  );
-}
+    return (
+        <Card className='card'>
+            <Card.Img variant="top" src={product.imageUrl} /> {/* Aquí utilizamos "imageUrl" en lugar de "imagen" */}
+            <Card.Body>
+                <Card.Title>{product.title}</Card.Title> {/* Utilizamos "title" en lugar de "name" */}
+                <Card.Text>
+                    {product.description}
+                </Card.Text>
+                <Card.Text>Precio: S/. {formattedPrice}</Card.Text> 
+                <ItemProductoDialog product={product} />
+            </Card.Body>
+        </Card>
+    );
+};

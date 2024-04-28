@@ -1,9 +1,18 @@
-import cart from "../assets/cart.png";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import carrito from "../assets/cart.png";
 
+const CartWidget = () => {
 
-export const CartWifget = () =>{
-    return <>
-                <img src={cart} alt="liquor shop" height={40} />
-          </>
+  
+    return (
+        <>
+            <Link to="/checkout">
+                <img src={carrito} alt="liquor shop" height={40} />
+            </Link>     
+        </>
+    );
+};
 
-}
+export default CartWidget;
+
